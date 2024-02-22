@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   background-color: #fff;
   display: flex;
@@ -36,7 +36,7 @@ export default {
   padding: 50px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 990px) {
   .container {
     padding: 20px;
   }
@@ -44,9 +44,8 @@ export default {
 
 .header {
   display: flex;
-  margin-top: 5px;
   justify-content: space-between;
-  gap: 20px;
+  
 }
 
 .title,
@@ -59,12 +58,14 @@ export default {
   color: #e31f24;
   font-weight: 700;
   font-size: 32px;
+  line-height: 1.2em;
 }
 .search-results {
+  display: flex;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fdfdfd;
-  margin-top: 28px;
-  padding: 19px;
+  margin-top: 26px;
+  /* padding: 30px; */
 }
 </style>

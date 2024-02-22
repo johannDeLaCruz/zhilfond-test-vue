@@ -1,34 +1,36 @@
 <template>
   <side class="employee-search">
-    <label for="search" class="search-title">Поиск сотрудников</label>
-    <input
-      id="search"
-      type="text"
-      v-model="searchQuery"
-      @input="fetchUsers"
-      placeholder="Search by name"
-    />
-    <h3 class="results-title">Результаты</h3>
-    <ul v-if="users.length">
-      <li v-for="user in users" :key="user.id" @click="selectUser(user)">
-        <article class="employee">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba7b1379847145c267da80d7fdb4ace962a88cff211e95ecefcabc64e415d38d?apiKey=61317ee42c2049be9f2f085faa68f327&"
-            class="employee-photo"
-            alt="Employee photo"
-          />
-          <div class="employee-info">
-            <h4 class="employee-name">{{ user.name }}</h4>
-            <p class="employee-email">{{ user.email }}</p>
-          </div>
-        </article>
-      </li>
-    </ul>
-    <div v-if="searchQuery.length === 0" class="error">
-      Выберите сотрудника, чтобы посмотреть его профиль
+    <div class="row-wrapper">
+      <label for="search" class="search-title">Поиск сотрудников</label>
+      <input
+        id="search"
+        type="text"
+        v-model="searchQuery"
+        @input="fetchUsers"
+        placeholder="Введите Id или имя "
+      />
     </div>
-    <div v-else-if="error" class="error">{{ error }}</div>
+    <div class="row-wrapper">
+      <h3 class="results-title">Результаты</h3>
+      <p v-if="searchQuery.length === 0" class="error">начните поиск</p>
+      <p v-else-if="error" class="error">{{ error }}</p>
+      <ul v-if="users.length">
+        <li v-for="user in users" :key="user.id" @click="selectUser(user)">
+          <article class="employee">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba7b1379847145c267da80d7fdb4ace962a88cff211e95ecefcabc64e415d38d?apiKey=61317ee42c2049be9f2f085faa68f327&"
+              class="employee-photo"
+              alt="Employee photo"
+            />
+            <div class="employee-info">
+              <h4 class="employee-name">{{ user.name }}</h4>
+              <p class="employee-email">{{ user.email }}</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
   </side>
 </template>
 
@@ -94,18 +96,41 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.employee-search {
+  padding: 27px 31px 27px 20px;
+  border-right: 1px solid #dededd;
+  display: flex;
+  flex-direction: column;
+  row-gap: 29px;
+}
+.row-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
 .search-title,
-.results-title,
-.about-title {
+.results-title {
   color: #333;
   font-weight: 600;
   font-size: 16px;
-  margin: 16px 0;
+  line-height: 1.4em;
 }
-.employee-info,
-.details {
-  display: flex;
-  flex-direction: column;
+#search {
+  padding: 14px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  width: 240px;
+  font-size: 16px;
+  color: #76787d;
+  outline: none;
 }
+#search:focus {
+  border: 2px solid #e31f24;
+}
+// .employee-info,
+// .details {
+//   display: flex;
+//   flex-direction: column;
+// }
 </style>

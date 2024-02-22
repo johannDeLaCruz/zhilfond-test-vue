@@ -1,6 +1,11 @@
 <template>
   <section class="employee-details">
-    <img loading="lazy" :src="employee.photo" class="employee-profile-photo" :alt="'Photo of ' + employee.name" />
+    <img
+      loading="lazy"
+      :src="employee.photo"
+      class="employee-profile-photo"
+      :alt="'Photo of ' + employee.name"
+    />
     <div class="details">
       <h4 class="employee-name-full">{{ employee.name }}</h4>
       <p class="employee-contact">
@@ -12,7 +17,12 @@
         <span class="contact-phone">{{ employee.phone }}</span>
       </p>
       <h4 class="about-title">About:</h4>
-      <p class="employee-about">{{ employee.about }}</p>
+      <p class="employee-about">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim ut
+        maxime, autem laudantium incidunt, fugiat id quas voluptates debitis
+        ipsum minima, architecto cumque dolore? Consequatur expedita
+        exercitationem natus sapiente architecto?
+      </p>
     </div>
   </section>
 </template>
@@ -27,7 +37,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .employee-details {
   display: flex;
   flex-direction: column;
@@ -56,7 +65,8 @@ export default {
   color: #333;
 }
 
-.contact-email, .contact-phone {
+.contact-email,
+.contact-phone {
   font-weight: 400;
   font-size: 14px;
   color: #76787d;
