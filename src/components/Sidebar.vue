@@ -82,7 +82,8 @@ export default {
           id: user.id,
           name: user.name,
           email: user.email,
-          photo: `../assets/avatar-placeholder-lg.png`,
+          phone: user.phone,
+          photo: "../assets/avatar-placeholder-lg.png",
         }));
         this.error = null;
       } catch (error) {
@@ -146,17 +147,7 @@ li {
   font-size: 14px;
   line-height: 1.2em;
 }
-.employee-name {
- 
-
-}
 .employee-email {
   color: #76787d;
 }
-
-// .employee-info,
-// .details {
-//   display: flex;
-//   flex-direction: column;
-// }
 </style>

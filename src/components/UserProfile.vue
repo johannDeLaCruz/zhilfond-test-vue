@@ -1,27 +1,32 @@
 <template>
   <section class="employee-details">
-    <img
-      loading="lazy"
-      :src="employee.photo"
-      class="employee-profile-photo"
-      :alt="'Photo of ' + employee.name"
-    />
+    <div>
+      <img
+        loading="lazy"
+        src="../assets/avatar-placeholder-lg.png"
+        class="employee-profile-photo"
+        :alt="'Photo of ' + employee.name"
+      />
+    </div>
     <div class="details">
       <h4 class="employee-name-full">{{ employee.name }}</h4>
       <p class="employee-contact">
         <span class="contact-label">email:</span>
-        <span class="contact-email">{{ employee.email }}</span>
+        <span class="contact-data">{{ employee.email }}</span>
       </p>
       <p class="employee-contact">
         <span class="contact-label">phone:</span>
-        <span class="contact-phone">{{ employee.phone }}</span>
+        <span class="contact-data">{{ employee.phone }}</span>
       </p>
-      <h4 class="about-title">About:</h4>
+      <h4 class="about-title">О себе:</h4>
       <p class="employee-about">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim ut
-        maxime, autem laudantium incidunt, fugiat id quas voluptates debitis
-        ipsum minima, architecto cumque dolore? Consequatur expedita
-        exercitationem natus sapiente architecto?
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
       </p>
     </div>
   </section>
@@ -39,34 +44,35 @@ export default {
 <style scoped>
 .employee-details {
   display: flex;
-  flex-direction: column;
+  padding: 30px 30px 21px 30px;
 }
 
 .details {
-  margin-left: 20px;
+  margin-left: 61px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .employee-profile-photo {
-  width: 70px;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #e31f24;
+  border: 1px solid #e0e0e0;
 }
 
 .employee-name-full {
-  color: #333;
+  color: #000;
   font-weight: 600;
-  font-family: Montserrat, sans-serif;
+  line-height: 1.4em;
 }
 
 .contact-label {
   font-size: 14px;
   color: #333;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-right: 14px;
 }
 
-.contact-email,
-.contact-phone {
+.contact-data {
   font-weight: 400;
   font-size: 14px;
   color: #76787d;
