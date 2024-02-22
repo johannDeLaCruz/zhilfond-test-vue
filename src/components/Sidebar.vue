@@ -51,7 +51,7 @@ export default {
         } else if (type === "username") {
           return searchQuery.map((item) => `username=${item}`).join("&");
         } else {
-          throw new Error("Invalid type provided");
+          throw new Error("Введен не тот тип данных!");
         }
       }
       let query = "";
@@ -74,7 +74,7 @@ export default {
         }
         const data = await response.json();
         if (data.length === 0) {
-          this.error = "Сотрудник не найден!";
+          this.error = "ничего не найдено";
           this.users = [];
           return;
         }
@@ -124,6 +124,7 @@ export default {
   font-size: 16px;
   color: #76787d;
   outline: none;
+  transition: 0.3s;
 }
 #search:focus {
   border: 2px solid #e31f24;
