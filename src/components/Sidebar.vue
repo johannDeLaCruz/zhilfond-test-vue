@@ -19,7 +19,7 @@
           <article class="employee">
             <img
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba7b1379847145c267da80d7fdb4ace962a88cff211e95ecefcabc64e415d38d?apiKey=61317ee42c2049be9f2f085faa68f327&"
+              src="../assets/avatar-placeholder.png"
               class="employee-photo"
               alt="Employee photo"
             />
@@ -82,7 +82,7 @@ export default {
           id: user.id,
           name: user.name,
           email: user.email,
-          photo: `https://cdn.builder.io/api/v1/image/assets/TEMP/ba7b1379847145c267da80d7fdb4ace962a88cff211e95ecefcabc64e415d38d?apiKey=61317ee42c2049be9f2f085faa68f327&`,
+          photo: `../assets/avatar-placeholder-lg.png`,
         }));
         this.error = null;
       } catch (error) {
@@ -129,6 +129,31 @@ export default {
 #search:focus {
   border: 2px solid #e31f24;
 }
+
+li {
+  list-style-type: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.employee {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.employee-info {
+  font-size: 14px;
+  line-height: 1.2em;
+}
+.employee-name {
+ 
+
+}
+.employee-email {
+  color: #76787d;
+}
+
 // .employee-info,
 // .details {
 //   display: flex;
