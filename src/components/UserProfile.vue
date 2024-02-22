@@ -9,25 +9,29 @@
       />
     </div>
     <div class="details">
-      <h4 class="employee-name-full">{{ employee.name }}</h4>
-      <p class="employee-contact">
-        <span class="contact-label">email:</span>
-        <span class="contact-data">{{ employee.email }}</span>
-      </p>
-      <p class="employee-contact">
-        <span class="contact-label">phone:</span>
-        <span class="contact-data">{{ employee.phone }}</span>
-      </p>
-      <h4 class="about-title">О себе:</h4>
-      <p class="employee-about">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <div class="employee-wrapper">
+        <h4 class="employee-name-full">{{ employee.name }}</h4>
+        <p class="employee-contact">
+          <span class="contact-label">email:</span>
+          <span class="contact-data">{{ employee.email }}</span>
+        </p>
+        <p class="employee-contact">
+          <span class="contact-label">phone:</span>
+          <span class="contact-data">{{ employee.phone }}</span>
+        </p>
+      </div>
+      <div class="about-wrapper">
+        <h4 class="about-title">О себе:</h4>
+        <p class="employee-about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -49,13 +53,17 @@ export default {
 
 .details {
   margin-left: 61px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .employee-profile-photo {
   border: 1px solid #e0e0e0;
+}
+.employee-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .employee-name-full {
@@ -77,16 +85,22 @@ export default {
   font-size: 14px;
   color: #76787d;
 }
+.about-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
 
 .about-title {
   color: #333;
   font-weight: 600;
-  font-size: 16px;
   margin-top: 16px;
 }
 
 .employee-about {
-  margin-top: 8px;
-  font: 400 14px Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #76787d;
 }
 </style>
