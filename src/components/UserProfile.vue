@@ -57,10 +57,6 @@ export default {
 .details {
   margin-left: 61px;
 }
-
-.employee-profile-photo {
-  border: 1px solid #e0e0e0;
-}
 .employee-wrapper {
   display: flex;
   flex-direction: column;

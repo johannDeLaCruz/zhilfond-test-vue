@@ -147,12 +147,12 @@ li {
   margin-bottom: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 .selected {
-  background-color: #e0e0e0; // or any other desired background color
+  background-color: #e0e0e0;
 }
 .employee {
- 
   display: flex;
   align-items: center;
   column-gap: 15px;
