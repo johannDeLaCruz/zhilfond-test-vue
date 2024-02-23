@@ -52,9 +52,8 @@ export default {
 @import "../style/style.scss";
 .employee-details {
   display: flex;
-  padding: 30px 30px 21px 30px;
+  padding: 30px;
 }
-
 .details {
   margin-left: 61px;
 }
@@ -64,22 +63,16 @@ export default {
   row-gap: 10px;
 }
 .employee-name-full {
+  font-size: 16px;
   color: $text-black-color;
   font-weight: 600;
   line-height: 1.4em;
 }
 .contact-label {
-  font-size: 14px;
   color: $text-header-color;
   font-weight: 600;
   line-height: 1.4em;
-  margin-right: 14px;
-}
-
-.contact-data {
-  font-weight: 400;
-  font-size: 14px;
-  color: $text-body-color;
+  margin-right: 1em;
 }
 .about-wrapper {
   margin-top: 20px;
@@ -88,19 +81,16 @@ export default {
   row-gap: 25px;
 }
 .about-title {
+  font-size: 16px;
   color: $text-header-color;
   font-weight: 600;
   margin-top: 16px;
 }
 .employee-about {
-  font-size: 14px;
-  font-weight: 400;
-  color: $text-body-color;
+  font-weight: 400; 
 }
 .no-users {
-  font-size: 14px;
-  line-height: 1.2em;
-  color: $text-body-color;
+  line-height: 1.2em;  
   margin: auto;
 }
 </style>

@@ -109,7 +109,7 @@ export default {
 <style scoped lang="scss">
 @import "../style/style.scss";
 .employee-search {
-  padding: 27px 31px 27px 20px;
+  padding: 27px 31px;
   border-right: 1px solid #dededd;
   display: flex;
   flex-direction: column;
@@ -162,15 +162,13 @@ li {
   font-size: 14px;
   line-height: 1.2em;
 }
-.employee-email {
-  color: $text-body-color;
+.employee-name {
+  color: $text-header-color;
 }
 .employee-photo {
   background-color: $bg-color;
 }
 .error {
-  font-size: 14px;
   line-height: 1.2em;
-  color: $text-body-color;
 }
 </style>

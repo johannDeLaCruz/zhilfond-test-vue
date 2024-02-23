@@ -55,4 +55,8 @@ export default {
   margin-top: 26px;
   min-height: 575px;
 }
+.user {
+  font-size: 16px;
+  color: $text-header-color;
+}
 </style>
