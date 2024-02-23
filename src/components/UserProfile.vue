@@ -53,6 +53,7 @@ export default {
 .employee-details {
   display: flex;
   padding: 30px;
+  overflow: hidden;
 }
 .details {
   margin-left: 61px;
