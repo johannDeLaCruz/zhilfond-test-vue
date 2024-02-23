@@ -122,7 +122,8 @@ export default {
   border: 2px solid #e9ecef;
   border-radius: 8px;
   width: 240px;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.2em;
   color: #76787d;
   outline: none;
   transition: 0.3s;
@@ -148,6 +149,11 @@ li {
   line-height: 1.2em;
 }
 .employee-email {
+  color: #76787d;
+}
+.error {
+  font-size: 14px;
+  line-height: 1.2em;
   color: #76787d;
 }
 </style>
