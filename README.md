@@ -1,7 +1,54 @@
-# Vue 3 + Vite
+# Жилфонд Vue.js приложение
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Этот репозиторий содержит Vue.js приложение для управления информацией о сотрудниках организации "Жилфонд". Приложение предоставляет возможность поиска сотрудников по их идентификатору или имени, просмотра подробной информации о выбранном сотруднике, а также предоставляет возможность просмотра и редактирования профиля пользователя.
 
-## Recommended IDE Setup
+## Установка
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Для запуска этого приложения локально на вашем компьютере, выполните следующие шаги:
+
+1. Клонируйте репозиторий на вашем компьютере:
+
+    ```
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+2. Перейдите в директорию с проектом:
+
+    ```
+    cd your-repository
+    ```
+
+3. Установите зависимости:
+
+    ```
+    npm install
+    ```
+
+4. Запустите приложение:
+
+    ```
+    npm run serve
+    ```
+
+5. После этого приложение будет доступно по адресу [http://localhost:8080](http://localhost:8080).
+
+## Особенности
+
+- Поиск сотрудников по их идентификатору или имени.
+- Просмотр подробной информации о выбранном сотруднике, включая его имя, email, и номер телефона.
+- Возможность просмотра и редактирования профиля пользователя.
+- Использование Vuex для управления состоянием приложения.
+
+## Используемые технологии
+
+- Vue.js
+- Vuex
+- SCSS
+
+## Автор
+
+Автор: [Ваше имя](https://github.com/your-username)
+
+## Лицензия
+
+Этот проект лицензирован в соответствии с лицензией [MIT](LICENSE).
