@@ -10,7 +10,7 @@
     </div>
     <div class="details">
       <div class="employee-wrapper">
-        <h4 class="employee-name-full">{{ employee.name }}</h4>
+        <h3 class="employee-name-full">{{ employee.name }}</h3>
         <p class="employee-contact">
           <span class="contact-label">email:</span>
           <span class="contact-data">{{ employee.email }}</span>

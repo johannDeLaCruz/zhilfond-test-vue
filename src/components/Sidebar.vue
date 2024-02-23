@@ -114,61 +114,64 @@ export default {
   display: flex;
   flex-direction: column;
   row-gap: 29px;
-}
-.row-wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 14px;
-}
-.search-title,
-.results-title {
-  color: $text-header-color;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.4em;
-}
-#search {
-  padding: 14px 16px;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  width: 240px;
-  font-size: 14px;
-  line-height: 1.2em;
-  color: $text-body-color;
-  outline: none;
-  transition: 0.3s;
-}
-#search:focus {
-  border: 2px solid $accent-color;
-}
 
-li {
-  list-style-type: none;
-  cursor: pointer;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-.selected {
-  background-color: #e0e0e0;
-}
-.employee {
-  display: flex;
-  align-items: center;
-  column-gap: 15px;
-}
-.employee-info {
-  font-size: 14px;
-  line-height: 1.2em;
-}
-.employee-name {
-  color: $text-header-color;
-}
-.employee-photo {
-  background-color: $bg-color;
-}
-.error {
-  line-height: 1.2em;
+  .row-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+
+    .search-title,
+    .results-title {
+      color: $text-header-color;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.4em;
+    }
+
+    #search {
+      padding: 14px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      width: 240px;
+      font-size: 14px;
+      line-height: 1.2em;
+      color: $text-body-color;
+      outline: none;
+      transition: 0.3s;
+      &:focus {
+        border: 2px solid $accent-color;
+      }
+    }
+    li {
+      list-style-type: none;
+      cursor: pointer;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      &.selected {
+        background-color: #e0e0e0;
+      }
+      .employee {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        &-info {
+          font-size: 14px;
+          line-height: 1.2em;
+        }
+        &-name {
+          color: $text-header-color;
+        }
+        &-photo {
+          background-color: $bg-color;
+        }
+      }
+
+      .error {
+        line-height: 1.2em;
+      }
+    }
+  }
 }
 </style>
