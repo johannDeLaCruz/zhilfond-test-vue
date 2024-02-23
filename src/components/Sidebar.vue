@@ -12,8 +12,7 @@
     </div>
     <div class="row-wrapper">
       <h2 class="results-title">Результаты</h2>
-      <p v-if="searchQuery.length === 0" class="error">начните поиск</p>
-      <p v-else-if="error" class="error">{{ error }}</p>
+      <p v-if="error" class="error">{{ error }}</p>
       <ul v-if="users.length">
         <li
           v-for="user in users"
@@ -40,68 +39,34 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
+
 export default {
   computed: {
-    ...mapState(["selectedUser"]),
+    ...mapState(["selectedUser", "users", "error"]),
+  },
+  methods: {
+    ...mapActions(["fetchUsers"]),
+    selectUser(user) {
+      this.$store.commit("selectUser", user);
+    },
+    updateSearchQuery(query) {
+      this.$store.commit("setSearchQuery", query);
+    },
+  },
+  watch: {
+    searchQuery: {
+      handler(newVal) {
+        this.updateSearchQuery(newVal);
+        this.fetchUsers();
+      },
+      immediate: true,
+    },
   },
   data() {
     return {
       searchQuery: "",
-      users: [],
-      error: null,
     };
-  },
-  methods: {
-    async fetchUsers() {
-      try {
-        this.error =
-          this.searchQuery.trim() === ""
-            ? "Start searching"
-            : "Fetching data, please wait...";
-        if (this.searchQuery.trim() === "") {
-          this.$store.commit("selectUser", null);
-          this.users = [];
-          return;
-        }
-        const query = this.buildQuery();
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/users?${query}`
-        );
-        if (!response.ok) {
-          throw new Error("Something went wrong!");
-        }
-        const data = await response.json();
-        if (data.length === 0) {
-          this.error = "Nothing found";
-          this.users = [];
-          return;
-        }
-        this.users = data.map((user) => ({
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          phone: user.phone,
-          photo: "../assets/avatar-placeholder-lg.png",
-        }));
-        this.error = null;
-      } catch (error) {
-        this.error = error;
-      }
-    },
-    selectUser(user) {
-      this.$store.commit("selectUser", user);
-    },
-    buildQuery() {
-      const searchQueryArray = this.searchQuery.includes(",")
-        ? this.searchQuery.split(", ")
-        : [this.searchQuery];
-      const type = searchQueryArray.every((item) => !isNaN(item))
-        ? "id"
-        : "username";
-
-      return searchQueryArray.map((item) => `${type}=${item}`).join("&");
-    },
   },
 };
 </script>
@@ -157,7 +122,7 @@ export default {
         align-items: center;
         column-gap: 15px;
         &-info {
-          font-size: 14px;
+          padding-right: 1em;
           line-height: 1.2em;
         }
         &-name {
@@ -167,7 +132,6 @@ export default {
           background-color: $bg-color;
         }
       }
-
       .error {
         line-height: 1.2em;
       }
