@@ -48,7 +48,8 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
+@import "../style/style.scss";
 .employee-details {
   display: flex;
   padding: 30px 30px 21px 30px;
@@ -63,13 +64,13 @@ export default {
   row-gap: 10px;
 }
 .employee-name-full {
-  color: #000;
+  color: $text-black-color;
   font-weight: 600;
   line-height: 1.4em;
 }
 .contact-label {
   font-size: 14px;
-  color: #333;
+  color: $text-header-color;
   font-weight: 600;
   line-height: 1.4em;
   margin-right: 14px;
@@ -78,7 +79,7 @@ export default {
 .contact-data {
   font-weight: 400;
   font-size: 14px;
-  color: #76787d;
+  color: $text-body-color;
 }
 .about-wrapper {
   margin-top: 20px;
@@ -87,19 +88,19 @@ export default {
   row-gap: 25px;
 }
 .about-title {
-  color: #333;
+  color: $text-header-color;
   font-weight: 600;
   margin-top: 16px;
 }
 .employee-about {
   font-size: 14px;
   font-weight: 400;
-  color: #76787d;
+  color: $text-body-color;
 }
 .no-users {
   font-size: 14px;
   line-height: 1.2em;
-  color: #76787d;
+  color: $text-body-color;
   margin: auto;
 }
 </style>

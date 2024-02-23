@@ -107,6 +107,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../style/style.scss";
 .employee-search {
   padding: 27px 31px 27px 20px;
   border-right: 1px solid #dededd;
@@ -121,7 +122,7 @@ export default {
 }
 .search-title,
 .results-title {
-  color: #333;
+  color: $text-header-color;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4em;
@@ -133,12 +134,12 @@ export default {
   width: 240px;
   font-size: 14px;
   line-height: 1.2em;
-  color: #76787d;
+  color: $text-body-color;
   outline: none;
   transition: 0.3s;
 }
 #search:focus {
-  border: 2px solid #e31f24;
+  border: 2px solid $accent-color;
 }
 
 li {
@@ -162,14 +163,14 @@ li {
   line-height: 1.2em;
 }
 .employee-email {
-  color: #76787d;
+  color: $text-body-color;
 }
 .employee-photo {
-  background-color: #fdfdfd;
+  background-color: $bg-color;
 }
 .error {
   font-size: 14px;
   line-height: 1.2em;
-  color: #76787d;
+  color: $text-body-color;
 }
 </style>
