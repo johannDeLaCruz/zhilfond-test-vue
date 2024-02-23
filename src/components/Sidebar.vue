@@ -15,7 +15,12 @@
       <p v-if="searchQuery.length === 0" class="error">начните поиск</p>
       <p v-else-if="error" class="error">{{ error }}</p>
       <ul v-if="users.length">
-        <li v-for="user in users" :key="user.id" @click="selectUser(user)">
+        <li
+          v-for="user in users"
+          :key="user.id"
+          @click="selectUser(user)"
+          :class="{ selected: user.id === selectedUser?.id }"
+        >
           <article class="employee">
             <img
               loading="lazy"
@@ -35,7 +40,11 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["selectedUser"]),
+  },
   data() {
     return {
       searchQuery: "",
@@ -45,36 +54,26 @@ export default {
   },
   methods: {
     async fetchUsers() {
-      function buildQuery(searchQuery, type) {
-        if (type === "id") {
-          return searchQuery.map((item) => `id=${item}`).join("&");
-        } else if (type === "username") {
-          return searchQuery.map((item) => `username=${item}`).join("&");
-        } else {
-          throw new Error("Введен не тот тип данных!");
-        }
-      }
-      let query = "";
-      const searchQueryArray = this.searchQuery.includes(",")
-        ? this.searchQuery.split(", ")
-        : [this.searchQuery];
-
-      if (searchQueryArray.every((item) => !isNaN(item))) {
-        query = buildQuery(searchQueryArray, "id");
-      } else {
-        query = buildQuery(searchQueryArray, "username");
-      }
       try {
-        this.error = "Просходит запрос, подождите...";
+        this.error =
+          this.searchQuery.trim() === ""
+            ? "Start searching"
+            : "Fetching data, please wait...";
+        if (this.searchQuery.trim() === "") {
+          this.$store.commit("selectUser", null);
+          this.users = [];
+          return;
+        }
+        const query = this.buildQuery();
         const response = await fetch(
           `https://jsonplaceholder.typicode.com/users?${query}`
         );
         if (!response.ok) {
-          throw new Error("Что-то пошло не так!");
+          throw new Error("Something went wrong!");
         }
         const data = await response.json();
         if (data.length === 0) {
-          this.error = "ничего не найдено";
+          this.error = "Nothing found";
           this.users = [];
           return;
         }
@@ -92,6 +91,16 @@ export default {
     },
     selectUser(user) {
       this.$store.commit("selectUser", user);
+    },
+    buildQuery() {
+      const searchQueryArray = this.searchQuery.includes(",")
+        ? this.searchQuery.split(", ")
+        : [this.searchQuery];
+      const type = searchQueryArray.every((item) => !isNaN(item))
+        ? "id"
+        : "username";
+
+      return searchQueryArray.map((item) => `${type}=${item}`).join("&");
     },
   },
 };
@@ -136,10 +145,14 @@ li {
   list-style-type: none;
   cursor: pointer;
   margin-bottom: 15px;
-}
-.employee {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.selected {
+  background-color: #e0e0e0; // or any other desired background color
+}
+.employee {
+ 
   display: flex;
   align-items: center;
   column-gap: 15px;
@@ -150,6 +163,9 @@ li {
 }
 .employee-email {
   color: #76787d;
+}
+.employee-photo {
+  background-color: #fdfdfd;
 }
 .error {
   font-size: 14px;

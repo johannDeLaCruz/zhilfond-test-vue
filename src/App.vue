@@ -20,11 +20,6 @@ export default {
     Sidebar,
     UserProfile,
   },
-  // computed: {
-  //   selectedUser() {
-  //     return this.$store.state.selectedUser;
-  //   },
-  // },
 };
 </script>
 
@@ -41,19 +36,10 @@ export default {
     padding: 20px;
   }
 }
-
 .header {
   display: flex;
   justify-content: space-between;
-  
 }
-
-.title,
-.user {
-  color: #333;
-  font: 400 16px/24px Montserrat, sans-serif;
-}
-
 .title {
   color: #e31f24;
   font-weight: 700;

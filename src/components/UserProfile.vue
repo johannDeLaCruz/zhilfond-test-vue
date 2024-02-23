@@ -1,5 +1,5 @@
 <template>
-  <section v-if="selectedUser" class="employee-details">
+  <section v-if="employee" class="employee-details">
     <div>
       <img
         loading="lazy"
@@ -43,9 +43,6 @@
 export default {
   computed: {
     employee() {
-      return this.$store.state.selectedUser;
-    },
-    selectedUser() {
       return this.$store.state.selectedUser;
     },
   },
