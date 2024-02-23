@@ -6,7 +6,7 @@
     </header>
     <section class="search-results">
       <Sidebar />
-      <UserProfile v-if="selectedUser" />
+      <UserProfile />
     </section>
   </section>
 </template>
@@ -20,11 +20,11 @@ export default {
     Sidebar,
     UserProfile,
   },
-  computed: {
-    selectedUser() {
-      return this.$store.state.selectedUser;
-    },
-  },
+  // computed: {
+  //   selectedUser() {
+  //     return this.$store.state.selectedUser;
+  //   },
+  // },
 };
 </script>
 

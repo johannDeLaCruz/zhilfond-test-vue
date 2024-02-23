@@ -1,5 +1,5 @@
 <template>
-  <section class="employee-details">
+  <section v-if="selectedUser" class="employee-details">
     <div>
       <img
         loading="lazy"
@@ -34,12 +34,18 @@
       </div>
     </div>
   </section>
+  <section v-else class="no-users">
+    <span>Выберите сотрудника, чтобы посмотреть его профиль</span>
+  </section>
 </template>
 
 <script>
 export default {
   computed: {
     employee() {
+      return this.$store.state.selectedUser;
+    },
+    selectedUser() {
       return this.$store.state.selectedUser;
     },
   },
@@ -53,8 +59,6 @@ export default {
 
 .details {
   margin-left: 61px;
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .employee-profile-photo {
@@ -65,13 +69,11 @@ export default {
   flex-direction: column;
   row-gap: 10px;
 }
-
 .employee-name-full {
   color: #000;
   font-weight: 600;
   line-height: 1.4em;
 }
-
 .contact-label {
   font-size: 14px;
   color: #333;
@@ -91,16 +93,20 @@ export default {
   flex-direction: column;
   row-gap: 25px;
 }
-
 .about-title {
   color: #333;
   font-weight: 600;
   margin-top: 16px;
 }
-
 .employee-about {
   font-size: 14px;
   font-weight: 400;
   color: #76787d;
+}
+.no-users {
+  font-size: 14px;
+  line-height: 1.2em;
+  color: #76787d;
+  margin: auto;
 }
 </style>

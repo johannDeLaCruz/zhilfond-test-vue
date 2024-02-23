@@ -11,7 +11,7 @@
       />
     </div>
     <div class="row-wrapper">
-      <h3 class="results-title">Результаты</h3>
+      <h2 class="results-title">Результаты</h2>
       <p v-if="searchQuery.length === 0" class="error">начните поиск</p>
       <p v-else-if="error" class="error">{{ error }}</p>
       <ul v-if="users.length">
